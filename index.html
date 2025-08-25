@@ -6,72 +6,131 @@
   <title>Репетитор по английскому</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f6f9;
+      background: linear-gradient(to bottom, #f0f4f8 0%, #e0e7f1 100%);
       color: #333;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    /* Фоновые декоративные буквы */
+    body::before {
+      content: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      position: absolute;
+      top: 20%;
+      left: -50px;
+      font-size: 150px;
+      color: rgba(42,77,155,0.05);
+      transform: rotate(-25deg);
+      z-index: 0;
+    }
+
     header {
-      background: #4a90e2;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg') no-repeat center center / cover;
       color: #fff;
       text-align: center;
-      padding: 40px 20px;
+      padding: 80px 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      position: relative;
+      z-index: 1;
     }
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p { font-size: 1.2em; }
+    header h1 { margin: 0; font-size: 2.8em; letter-spacing: 1px; }
+    header p { font-size: 1.3em; margin-top: 10px; }
 
-    section { padding: 40px 20px; max-width: 900px; margin: auto; }
-    h2 { color: #4a90e2; }
+    section { padding: 60px 20px; max-width: 900px; margin: auto; position: relative; z-index: 1; }
+    h2 { color: #2a4d9b; margin-bottom: 20px; text-align: center; position: relative; }
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #2a4d9b;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
 
-    .services, .contacts { display: grid; gap: 20px; }
     .card {
       background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+
+    .card img.icon {
+      width: 30px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
 
     .btn {
       display: inline-block;
-      background: #4a90e2;
+      background: #2a4d9b;
       color: #fff;
-      padding: 12px 20px;
-      border-radius: 6px;
+      padding: 14px 24px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
+      text-align: center;
     }
-    .btn:hover { background: #357abd; }
+    .btn:hover { background: #1c3575; }
 
     footer {
       text-align: center;
-      padding: 20px;
-      background: #eee;
+      padding: 30px;
+      background: #dbe3f0;
       margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
+      position: relative;
+      z-index: 1;
+    }
+
+    iframe {
+      border-radius: 12px;
+      width: 100%;
+      height: 650px;
+      border: none;
+    }
+
+    @media(max-width: 600px) {
+      header h1 { font-size: 2em; }
+      header p { font-size: 1em; }
+      section { padding: 40px 15px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Английский с Анной</h1>
+    <h1>Английский с Викторией</h1>
     <p>Индивидуальные занятия онлайн и оффлайн</p>
   </header>
 
   <section>
     <h2>Обо мне</h2>
-    <p>Я сертифицированный преподаватель английского языка с 5-летним опытом. Помогаю подготовиться к экзаменам, подтянуть разговорный английский и освоить язык для работы.</p>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" class="icon" alt="Британский флаг">
+      <p>Я сертифицированный преподаватель английского языка с 5-летним опытом. Помогаю подготовиться к экзаменам, подтянуть разговорный английский и освоить язык для работы.</p>
+    </div>
   </section>
 
   <section>
     <h2>Услуги и цены</h2>
     <div class="services">
       <div class="card">
-        <h3>Индивидуальные занятия</h3>
+        <h3><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" class="icon" alt="Британский флаг">Индивидуальные занятия</h3>
         <p>60 минут – 1000 ₽</p>
       </div>
       <div class="card">
-        <h3>Подготовка к экзаменам (IELTS, TOEFL)</h3>
+        <h3><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" class="icon" alt="Британский флаг">Подготовка к экзаменам (IELTS, TOEFL)</h3>
         <p>60 минут – 1500 ₽</p>
       </div>
     </div>
@@ -80,28 +139,23 @@
   <section>
     <h2>Запись на занятия</h2>
     <p>Выберите удобное время в календаре ниже:</p>
-    <!-- Calendly inline widget -->
-    <div style="min-width:320px;height:630px;">
-      <iframe src="https://calendly.com/your-username/english-lesson" width="100%" height="100%" frameborder="0"></iframe>
-    </div>
-    <p style="margin-top:20px;">
+    <iframe src="https://calendly.com/your-username/english-lesson" title="Calendly"></iframe>
+    <p style="margin-top:20px; text-align:center;">
       <a href="https://calendly.com/your-username/english-lesson" class="btn" target="_blank">Открыть календарь</a>
     </p>
   </section>
 
   <section>
     <h2>Контакты</h2>
-    <div class="contacts">
-      <div class="card">
-        <p>WhatsApp: <a href="https://wa.me/79990000000">+7 999 000 00 00</a></p>
-        <p>Telegram: <a href="https://t.me/yourusername">@yourusername</a></p>
-        <p>Email: yourmail@example.com</p>
-      </div>
+    <div class="card" style="max-width:400px; margin:auto; text-align:center;">
+      <p>WhatsApp: <a href="https://wa.me/79990000000">+7 999 000 00 00</a></p>
+      <p>Telegram: <a href="https://t.me/yourusername">@yourusername</a></p>
+      <p>Email: yourmail@example.com</p>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Английский с Анной</p>
+    <p>© 2025 Английский с Викторией</p>
   </footer>
 </body>
 </html>
